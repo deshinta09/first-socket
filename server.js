@@ -10,7 +10,7 @@ app.use(express.static('public'))
 io.on("connection", socket => {
     console.log("socket terkoneksi!");
     socket.on("kirim-pesan", pesan=>{ 
-        socket.broadcast.emit("pesan-baru",pesan)
+        socket.broadcast.emit("pesan-baru",pesan) // menerima pesan dari client dan mengirimnya ke semua socket yg terkoneksi
     })
 })
 

@@ -16,11 +16,11 @@ const createBubbleChat = chat =>{
 button_kirim.addEventListener("click",()=>{
     const bubbleChat = createBubbleChat(input.value);
     div_display.appendChild(bubbleChat);
-    socket.emit("kirim-pesan", input.value)
+    socket.emit("kirim-pesan", input.value) //pesan yg ingin dikirim ke sarver (namaPesan, isiPesan)
     input.value="";
 })
 
-socket.on("pesan-baru", pesan=>{
+socket.on("pesan-baru", pesan=>{ // menerima pesan yg dikirim dari server
     const bubbleChat = createBubbleChat(pesan)
     bubbleChat.classList.add("pesan-r")
     div_display.appendChild(bubbleChat)
